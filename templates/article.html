@@ -7,11 +7,13 @@
 {% endblock %}
 {% block content %}
 <section id="content" class="body">
-  <article>
+  <article class="post">
     <h1 class="title">
-      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-    {% include 'article_infos.html' %}
+      <a href="{{ SITEURL }}/{{ article.beautiful_url }}" rel="bookmark"
+         title="Permalink to {{ article.title|striptags }}">{{ article.title }}
+      </a>
+    </h1>
+    <img class="headerImage" src="{{ article.img }}">
     <div class="section">{{ article.content }}</div>
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
     <div class="comments">
@@ -19,8 +21,8 @@
       <div id="disqus_thread"></div>
       <script type="text/javascript">
         var disqus_shortname = '{{ DISQUS_SITENAME }}';
-        var disqus_identifier = '{{ article.url }}';
-        var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+        var disqus_identifier = '{{ article.beautiful_url }}';
+        var disqus_url = '{{ SITEURL }}/{{ article.beautiful_url }}';
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
@@ -31,6 +33,7 @@
     </div>
     {% endif %}
 
+    {% include 'article_infos.html' %}
   </article>
 </section>
 {% endblock %}
