@@ -39,28 +39,6 @@
   </div>
 </header>
 
-<nav class="nav has-shadow is-hidden-print">
-  <div class="container">
-    <div class="nav-center"></div>
-    <span id="navToggle" class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-    <div id="navMenu" class="nav-right nav-menu">
-      {% for title, link in MENUITEMS|reverse %}
-        <a class="nav-item is-tab" href="{{ link }}">{{ title }}</a>
-      {% endfor %}
-      {% if DISPLAY_CATEGORIES_ON_MENU %}
-        {% for cat, null in categories|reverse %}
-          <a class="nav-item is-tab {% if cat == category %}is-active{% endif %}"
-             href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-        {% endfor %}
-      {% endif %}
-    </div>
-  </div>
-</nav>
-
 <div class="container">
   <div class="section columns">
     <div class="column">
