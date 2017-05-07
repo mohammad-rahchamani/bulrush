@@ -10,8 +10,12 @@
           </h1>
           <img class="headerImage" src="{{ article.img }}">
           <div class="section">
-            {{ article.content }}
-            {% include 'comments.html' %}
+            {{ article.summary }}
+          </div>
+          <div>
+            <br>
+            <a class="readMore" href="{{ SITEURL }}/{{ article.beautiful_url }}">ادامه مطلب</a>
+            <br>
           </div>
           {% include 'article_infos.html' %}
         </article>
